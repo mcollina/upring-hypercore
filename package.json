@@ -1,0 +1,40 @@
+{
+  "name": "upring-hypercore",
+  "version": "0.0.1",
+  "description": "Store your hypercore feeds into a consistent hashring",
+  "main": "ringcore.js",
+  "scripts": {
+    "test": "standard | snazzy && tap --cov test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcollina/upring-hypercore.git"
+  },
+  "keywords": [
+    "upring",
+    "consistent",
+    "hashring",
+    "hashing",
+    "hypercore",
+    "hyper",
+    "gossip",
+    "swim"
+  ],
+  "author": "Matteo Collina <hello@matteocollina.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcollina/upring-hypercore/issues"
+  },
+  "homepage": "https://github.com/mcollina/upring-hypercore#readme",
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "snazzy": "^6.0.0",
+    "standard": "^8.6.0",
+    "tap": "^10.2.2"
+  },
+  "dependencies": {
+    "hypercore": "^5.0.0-rc.0",
+    "minimist": "^1.2.0",
+    "upring": "^0.14.5"
+  }
+}
