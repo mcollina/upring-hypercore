@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/mcollina/upring-hypercore#readme",
   "devDependencies": {
+    "mkdirp": "^0.5.1",
     "pre-commit": "^1.2.2",
     "random-access-memory": "^2.3.0",
     "snazzy": "^6.0.0",
