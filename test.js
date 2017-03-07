@@ -189,4 +189,50 @@ test('createReadStream', function (t) {
   })
 })
 
+test('append', function (t) {
+  t.plan(4)
+
+  const key = 'whaat3'
+
+  instance.append(key, { hello: 'world' }, function (err) {
+    t.error(err)
+    instance.append(key, { hello: 'world' }, function (err) {
+      t.error(err)
+    })
+  })
+
+  const rs = instance.createReadStream(key, {
+    live: true
+  })
+
+  rs.once('data', function (data) {
+    t.deepEqual(data, { hello: 'world' })
+    rs.once('data', function (data) {
+      t.deepEqual(data, { hello: 'world' })
+      rs.destroy()
+    })
+  })
+})
+
+test('tail', function (t) {
+  t.plan(4)
+
+  const key = 'whaat3'
+
+  const rs = instance.createReadStream(key, {
+    tail: true
+  })
+
+  rs.on('data', function (data) {
+    t.deepEqual(data, { hello: 'world' })
+  })
+
+  instance.append(key, { hello: 'world' }, function (err) {
+    t.error(err)
+    instance.append(key, { hello: 'world' }, function (err) {
+      t.error(err)
+    })
+  })
+})
+
 function noop () {}

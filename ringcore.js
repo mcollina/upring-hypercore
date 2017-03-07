@@ -161,6 +161,20 @@ RingCore.prototype.getInfo = function (key, cb) {
   }, cb)
 }
 
+RingCore.prototype.append = function (key, value, cb) {
+  if (!key) {
+    throw new Error('key must be defined')
+  }
+
+  if (!this._ready) {
+    this.upring.once('up', this.append.bind(this, key, value, cb))
+  } else {
+    this.upring.request({ key, value, ns, cmd: 'append' }, cb)
+  }
+
+  return this
+}
+
 RingCore.prototype.close = function (cb) {
   cb = cb || noop
   if (!this._ready) {
