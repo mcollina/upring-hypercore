@@ -4,7 +4,7 @@
   "description": "Store your hypercore feeds into a consistent hashring",
   "main": "ringcore.js",
   "scripts": {
-    "test": "standard | snazzy && tap --cov test.js"
+    "test": "standard | snazzy && tap --cov test/*test.js"
   },
   "repository": {
     "type": "git",

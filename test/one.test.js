@@ -2,7 +2,7 @@
 
 const t = require('tap')
 const test = t.test
-const RingCore = require('.')
+const RingCore = require('..')
 const joinTimeout = 200
 const hypercore = require('hypercore')
 const os = require('os')
